@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect , useState } from "react";
+import { PostsList } from "./components/posts/list.components";
+import { SearchInput } from "./components/search-input/serach-input.component";
+import axios from './libs/axios'
+import { Container } from "./components/container/container.component";
 
 function App() {
+  const [query, setQuery] = useState('')
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    const loadData = async () => {
+      const response = await axios.get('/posts', {
+        params: {
+          q: query
+        }
+      })
+      setData(response.data)
+    }
+    loadData()
+  }, [])
+
+  useEffect(() =>{
+    if (query && query.length < 3) {
+      const loadData = async () => {
+        const response = await axios.get('/posts', {
+          params: {
+            q: query
+          }
+        })
+        setData(response.data)
+      }
+      loadData()
+    }
+  }, [query])
+
+  const handelChangeQuerry = (value) => {
+    setQuery(value)
+  }
+
+  const handleClearQuerry = () => {
+    setQuery('')
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <SearchInput 
+          query ={query}
+          onChange={handelChangeQuerry} 
+          onClear={handleClearQuerry}
+        />
+        <PostsList posts={data}/>
+      </Container>
     </div>
   );
 }

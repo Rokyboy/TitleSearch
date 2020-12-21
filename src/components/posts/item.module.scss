@@ -1,0 +1,15 @@
+.Item {
+    position: relative;
+    padding: 24px;
+    margin-bottom: 36px;
+    box-shadow: 1px 1px 5px 1px #ff4141;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+
+    &__title {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,32 @@
+.SearchInput {
+    width: 100%;
+    padding-bottom: 24px;
+    position: relative;
+
+    &__input{
+        width: calc(100% - 28px);
+        height: 40px;
+        padding: 6px 12px 6px;
+        box-shadow: 1px 1px 5px 1px #ff4141;
+        outline: none;
+        border: 0;
+    }
+    &__button{
+        background-color: transparent;
+        top: 0;
+        bottom: 0;
+        right: -8px;
+        height: 52px;
+        right: 1px;
+        border: 0;
+        outline: none;
+        box-shadow: none;
+        position: absolute;
+        font-size: 24px;
+        cursor: pointer;
+        span {
+            display: block;
+            transform: rotate(45deg);
+        }
+    }
+}
