@@ -1,13 +1,13 @@
 import React from 'react'
 import style from './list.module.scss'
 
-import {PostItem} from './item.component'
+import {MovieItem} from './item.component'
 
-export const PostsList = ({ posts }) =>{
+export const MoviesList = ({ movies }) =>{
     return (
         <div className={style.List}>
             {
-                posts.map(post => <PostItem post={post}/>)
+                movies.map(movie => <MovieItem movie={movie}/>)
             }
         </div>
     )

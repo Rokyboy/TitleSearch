@@ -1,14 +1,14 @@
 import React from 'react'
 import style from './item.module.scss'
 
-export const PostItem = ({ post } ) =>{
+export const MovieItem = ({ movie } ) =>{
     return (
         <div className={style.Item}>
             <p className={style.Item__title}> 
-            {post.title}
+            {movie.Title}
             </p>
             <span>
-            {post.body}
+  
             </span>
         </div>
     )
